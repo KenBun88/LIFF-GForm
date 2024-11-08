@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LINE ID Submission</title>
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <script>
-        liff.init({ liffId: "2006535014-5Njy9KZM" }).then(() => {
-            if (liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
-                    const lineId = profile.userId;
-                    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdQd9QedJyGwSRPpCAw-Upe_E8y7dDS1a69W9cKU9GBlG28_w/formResponse?entry.478793778=" + lineId;
-                    window.location.href = formUrl; // Redirects user to the form with LINE ID
-                }).catch((err) => console.error(err));
-            } else {
-                liff.login();
-            }
+<script>
+  window.onload = function() {
+    liff.init({ liffId: "2006535014-5Njy9KZM" }).then(() => {
+      if (liff.isLoggedIn()) {
+        liff.getProfile().then(profile => {
+          const lineId = profile.userId;
+          const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdQd9QedJyGwSRPpCAw-Upe_E8y7dDS1a69W9cKU9GBlG28_w/formResponse?entry.478793778=" + lineId;
+          window.location.href = formUrl; // Redirects user to the form with LINE ID
         }).catch((err) => console.error(err));
-    </script>
-</head>
-<body>
-    <h1>Redirecting to Google Form...</h1>
-</body>
-</html>
+      } else {
+        liff.login();
+      }
+    }).catch((err) => console.error(err));
+  };
+</script>
