@@ -10,8 +10,8 @@
             liff.init({ liffId: "2006535014-5Njy9KZM" }).then(() => {
                 if (liff.isLoggedIn()) {
                     liff.getProfile().then(profile => {
-                        const lineId = profile.userId;
-                        const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSdQd9QedJyGwSRPpCAw-Upe_E8y7dDS1a69W9cKU9GBlG28_w/viewform?usp=pp_url&entry.478793778=${lineId}`;
+                        const name = profile.displayName; // Get the LINE Display Name
+                        const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSdQd9QedJyGwSRPpCAw-Upe_E8y7dDS1a69W9cKU9GBlG28_w/viewform?usp=pp_url&entry.478793778=${name}`;
                         window.location.href = formUrl;
                     }).catch((err) => console.error(err));
                 } else {
